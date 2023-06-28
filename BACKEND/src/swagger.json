@@ -1,0 +1,84 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API DE TRANSAÇÃO",
+        "description": "",
+        "termsOfService" : "http://localhost:3333/terms",
+        "contact": {
+            "email": "jullyksilva@hotmail.com"
+        },
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/getAllAnimal": {
+            "get": {
+                "summary": "Todas os animais da pessoa",
+                "description": "Retorna todas os animais de estimações que a pessoa possui",
+                "tags": ["animal"],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/animal"
+                            }
+                        } 
+                    }
+                }
+            }
+        },
+        "/createAnimal": {
+            "post": {
+                "summary": "Cadastro animal de estimação",
+                "description": "cadastrar animal de estimação",
+                "tags": ["animal"],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/animal"
+                            }
+                        } 
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "animal": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "age": {
+                        "type": "number"
+                    },
+                    "type": {
+                        "type": "string"
+                    },
+                    "race": {
+                        "type": "string"
+                    }
+                }
+            },
+            "dono": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "rg": {
+                        "type": "number"
+                    },
+                    "telephone": {
+                        "type": "number"
+                    },
+                    "address": {
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    }
+}
