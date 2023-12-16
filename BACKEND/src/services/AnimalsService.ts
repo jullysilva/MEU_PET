@@ -1,4 +1,4 @@
-import Animal from "../models/Animal";
+import Animal from "../teste/Animal";
 import AnimalsRepository from "../repositories/AnimalRepository";
 
 

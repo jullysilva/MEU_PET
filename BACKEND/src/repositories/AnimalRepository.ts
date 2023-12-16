@@ -1,36 +1,30 @@
-import Animal from '../models/Animal';
-
-interface AnimalDTO {
-  name: string;
-  age: number;
-  type: 'cat' | 'dog';
-  race: string;
-}
-
-interface Balance {
-  income: number;
-  outcome: number;
-  total: number;
-}
+import Animal from "../teste/Animal"
+const { create } = require("../services/AnimalsService")
 
 class AnimalsRepository {
-  private animals: Animal[];
+  private animals: Animal[]
 
   constructor() {
-    this.animals = [];
+    this.animals = []
   }
 
   public all(): Animal[] {
-    return this.animals;
+    return this.animals
   }
 
   public create({ name, age, type, race }: AnimalDTO): Animal {
-    const animal = new Animal({ name, age, type, race });
+    const animal = new Animal({ name, age, type, race })
 
-    this.animals.push(animal);
+    this.animals.push(animal)
 
-    return animal;
+    return animal
   }
 }
 
-export default AnimalsRepository;
+const createAnimal = async (req, res) => {
+  const { type, message } = await create(req.body)
+}
+
+module.exports = {
+  createAnimal,
+}
